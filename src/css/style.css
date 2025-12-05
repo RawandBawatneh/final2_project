@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 280px;
+  background: #f3f3f3;
+  padding: 30px;
+}
+
+.sidebar ul {
+  padding: 0;
+  list-style: disc;
+}
+
+.sidebar a {
+  color: #000;
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+/* Main content */
+.content {
+  flex: 1;
+  padding: 60px;
+}
+
+.content h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.content p {
+  font-size: 20px;
+}
+
+.logo {
+  margin-top: 20px;
+  width: 140px;
+}
+
+section {
+  display: none;
+}
+
+section.active {
+  display: block;
+}

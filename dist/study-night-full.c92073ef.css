@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+}
+
+.sidebar {
+  background: #f3f3f3;
+  width: 280px;
+  padding: 30px;
+}
+
+.sidebar ul {
+  padding: 0;
+  list-style: outside;
+}
+
+.sidebar a {
+  color: #000;
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+.content {
+  flex: 1;
+  padding: 60px;
+}
+
+.content h1 {
+  margin-top: 0;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.content p {
+  font-size: 20px;
+}
+
+.logo {
+  width: 140px;
+  margin-top: 20px;
+}
+
+section {
+  display: none;
+}
+
+section.active {
+  display: block;
+}
+/*# sourceMappingURL=study-night-full.c92073ef.css.map */
