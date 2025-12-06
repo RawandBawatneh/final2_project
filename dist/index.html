@@ -1,87 +1,40 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
-    <title>Study Night</title>
-    <link rel="stylesheet" href="/study-night-full.c92073ef.css">
-  </head>
-
-  <body>
-    <div class="container">
-      <!-- Sidebar -->
-      <aside class="sidebar">
+<!DOCTYPE html><html lang=en><meta charset=UTF-8><meta name=viewport content="width=device-width, initial-scale=1.0"><title>Study Night</title><link rel=stylesheet href=study-night-full.959d834e.css><body>
+    <div class=container>
+      <aside class=sidebar>
         <ul>
-          <li><a data-cy="nav-home" href="#home">Home</a></li>
-          <li><a data-cy="nav-sets" href="#sets">Card Set</a></li>
-          <li><a data-cy="nav-about" href="#about">About</a></li>
+          <li><a data-cy=nav-home href=#home>Home</a></li>
+          <li><a data-cy=nav-sets href=#sets>Card Sets</a></li>
+          <li><a data-cy=nav-about href=#about>About</a></li>
         </ul>
       </aside>
 
-      <!-- Main content -->
-      <main class="content">
-        <!-- HOME PAGE -->
-        <section id="home">
+      <main class=content>
+        <section id=home class=active>
           <h1>Home</h1>
           <p>Welcome to Study Night (demo)</p>
-          <img src="/logo.726d37a8.png" alt="logo" class="logo">
+          <img src=logo.28eeb583.png alt="Study Night Logo" class=logo>
         </section>
 
-        <!-- CARD SETS PAGE -->
-        <section id="sets">
+        <section id=sets>
           <h1>Card Sets</h1>
+          <button id=openFormBtn type=button>Create Set</button>
 
-          <button id="openFormBtn">Create Set</button>
-
-          <!-- Hidden Form -->
-          <div id="setForm" style="margin-top: 20px; display: none">
-            <label>Set Title</label>
-            <input id="setTitleInput" type="text">
-            <button id="createSetBtn">Create</button>
+          <div id=setForm class=form-hidden>
+            <label for=setTitleInput>Set Title</label>
+            <input id=setTitleInput placeholder="e.g. French Vocabulary">
+            <button id=createSetBtn type=button>Create</button>
+            <button id=cancelBtn type=button>Cancel</button>
           </div>
 
-          <!-- Created sets -->
-          <div id="setsList" style="margin-top: 20px; font-size: 20px"></div>
+          <div id=setsList aria-live=polite></div>
         </section>
 
-        <!-- ABOUT PAGE -->
-        <section id="about">
+        <section id=about>
           <h1>About</h1>
-          <p>This is the about page.</p>
+          <p>Minimal, clean, and fully optimized flashcard app demo.</p>
         </section>
       </main>
     </div>
 
-    <!-- PAGE SCRIPT -->
-    <script>// Switch pages using hash navigation
-function showSection() {
-    const hash = window.location.hash || "#home";
-    document.querySelectorAll("section").forEach((sec)=>sec.classList.remove("active"));
-    const current = document.querySelector(hash);
-    if (current) current.classList.add("active");
-}
-window.addEventListener("hashchange", showSection);
-window.addEventListener("load", showSection);
-// =============================
-// CARD SETS LOGIC
-// =============================
-const openFormBtn = document.getElementById("openFormBtn");
-const setForm = document.getElementById("setForm");
-const createSetBtn = document.getElementById("createSetBtn");
-const setTitleInput = document.getElementById("setTitleInput");
-const setsList = document.getElementById("setsList");
-// Show the form when clicking "Create Set"
-openFormBtn.addEventListener("click", ()=>{
-    setForm.style.display = "block";
-});
-// Create new set
-createSetBtn.addEventListener("click", ()=>{
-    const title = setTitleInput.value.trim();
-    if (!title) return;
-    const item = document.createElement("div");
-    item.textContent = `Set: ${title}`;
-    setsList.appendChild(item);
-    setTitleInput.value = "";
-});
-
-</script>
+    <script type=module src=study-night-full.95a4cf75.js></script>
   
-
-<script src="/study-night-full.59712999.js"></script></body></html>

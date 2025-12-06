@@ -1,96 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Study Night</title>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-
   <body>
     <div class="container">
-      <!-- Sidebar -->
       <aside class="sidebar">
         <ul>
           <li><a data-cy="nav-home" href="#home">Home</a></li>
-          <li><a data-cy="nav-sets" href="#sets">Card Set</a></li>
+          <li><a data-cy="nav-sets" href="#sets">Card Sets</a></li>
           <li><a data-cy="nav-about" href="#about">About</a></li>
         </ul>
       </aside>
 
-      <!-- Main content -->
       <main class="content">
-        <!-- HOME PAGE -->
-        <section id="home">
+        <section id="home" class="active">
           <h1>Home</h1>
           <p>Welcome to Study Night (demo)</p>
-          <img src="./img/logo.png" alt="logo" class="logo" />
+          <img src="./img/logo.png" alt="Study Night Logo" class="logo" />
         </section>
 
-        <!-- CARD SETS PAGE -->
         <section id="sets">
           <h1>Card Sets</h1>
+          <button id="openFormBtn" type="button">Create Set</button>
 
-          <button id="openFormBtn">Create Set</button>
-
-          <!-- Hidden Form -->
-          <div id="setForm" style="display: none; margin-top: 20px">
-            <label>Set Title</label>
-            <input id="setTitleInput" type="text" />
-            <button id="createSetBtn">Create</button>
+          <div id="setForm" class="form-hidden">
+            <label for="setTitleInput">Set Title</label>
+            <input id="setTitleInput" type="text" placeholder="e.g. French Vocabulary" />
+            <button id="createSetBtn" type="button">Create</button>
+            <button id="cancelBtn" type="button">Cancel</button>
           </div>
 
-          <!-- Created sets -->
-          <div id="setsList" style="margin-top: 20px; font-size: 20px"></div>
+          <div id="setsList" aria-live="polite"></div>
         </section>
 
-        <!-- ABOUT PAGE -->
         <section id="about">
           <h1>About</h1>
-          <p>This is the about page.</p>
+          <p>Minimal, clean, and fully optimized flashcard app demo.</p>
         </section>
       </main>
     </div>
 
-    <!-- PAGE SCRIPT -->
-    <script>
-      // Switch pages using hash navigation
-      function showSection() {
-        const hash = window.location.hash || "#home";
-        document
-          .querySelectorAll("section")
-          .forEach((sec) => sec.classList.remove("active"));
-        const current = document.querySelector(hash);
-        if (current) current.classList.add("active");
-      }
-
-      window.addEventListener("hashchange", showSection);
-      window.addEventListener("load", showSection);
-
-      // =============================
-      // CARD SETS LOGIC
-      // =============================
-      const openFormBtn = document.getElementById("openFormBtn");
-      const setForm = document.getElementById("setForm");
-      const createSetBtn = document.getElementById("createSetBtn");
-      const setTitleInput = document.getElementById("setTitleInput");
-      const setsList = document.getElementById("setsList");
-
-      // Show the form when clicking "Create Set"
-      openFormBtn.addEventListener("click", () => {
-        setForm.style.display = "block";
-      });
-
-      // Create new set
-      createSetBtn.addEventListener("click", () => {
-        const title = setTitleInput.value.trim();
-        if (!title) return;
-
-        const item = document.createElement("div");
-        item.textContent = `Set: ${title}`;
-        setsList.appendChild(item);
-
-        setTitleInput.value = "";
-      });
-    </script>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>
